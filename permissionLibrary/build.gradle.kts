@@ -3,6 +3,21 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("maven-publish")
 }
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.anuj-yash"
+            artifactId = "permissionsLibrary"
+            //version = "0.0.3"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
+
+
 
 android {
     namespace = "com.anuj.permissionlibrary"
